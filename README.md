@@ -3,6 +3,8 @@
 Dashboard de gestión de stock: usuarios, solicitudes de material, reposición
 interna, proveedores y pedidos.
 
+🔗 **Demo en vivo:** https://pauladolado.github.io/Company-Stock/
+
 > **Proyecto de portfolio.** Es una adaptación de una aplicación real que
 > desarrollé para gestionar el almacén de una empresa, con el nombre y los
 > datos completamente sustituidos por una empresa y un catálogo ficticios.
@@ -77,6 +79,23 @@ desplegable en cualquier hosting estático (Netlify, Vercel, GitHub Pages,
 etc.). Al ser una SPA con rutas de cliente, configura el hosting para
 servir `index.html` en cualquier ruta no encontrada (fallback SPA /
 "rewrite a index.html").
+
+### GitHub Pages
+
+El repo se despliega solo, vía [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml):
+cada push a `main` compila el proyecto y publica `dist/` en GitHub Pages.
+`npm run build:pages` (el script que usa ese workflow, no `npm run build`)
+hace dos ajustes que solo hacen falta para Pages, no para el resto de
+hostings:
+
+- Fija la ruta base de Vite a `/Company-Stock/` (variable `GITHUB_PAGES`,
+  ver [`vite.config.ts`](vite.config.ts)), porque Pages sirve el proyecto en
+  una subruta del dominio, no en la raíz.
+- Copia `index.html` a `404.html` tras el build: GitHub Pages no soporta
+  rewrites de servidor, así que cualquier ruta de React Router que no
+  exista como archivo real (p. ej. `/stock` al recargar la página) cae en
+  su `404.html`, que al ser una copia de `index.html` deja que React
+  Router monte la ruta correcta en el cliente.
 
 ## Estructura
 
