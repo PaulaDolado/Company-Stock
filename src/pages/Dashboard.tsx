@@ -58,7 +58,7 @@ function AdminDashboard() {
 
   const solicitudesPendientes = materialRequests.filter((r) => r.estado === "Pendiente").length;
   const pedidosEnCurso = orders.filter(
-    (o) => o.estado !== "Entregado" && o.estado !== "Cancelado"
+    (o) => o.estado !== "Entregado" && o.estado !== "Cancelado",
   ).length;
   const productosStockBajo = products.filter((p) => p.cantidad < p.minimo).length;
   const notificacionesSinLeer = notifications.filter((n) => !n.leida).length;
@@ -100,7 +100,7 @@ function AdminDashboard() {
     <AppShell title="Dashboard" subtitle="Resumen operativo del almacén central">
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {summary.map((card) => (
-          <a key={card.label} href={card.href}>
+          <Link key={card.label} to={card.href}>
             <Card className="border-border/70 shadow-sm cursor-pointer transition-all hover:shadow-md hover:border-border/100 h-full">
               <CardContent className="flex h-full flex-col justify-between gap-6 p-6">
                 <div className="flex items-start justify-between gap-4">
@@ -113,10 +113,12 @@ function AdminDashboard() {
                     <card.icon className="size-5" />
                   </span>
                 </div>
-                <p className="text-4xl font-semibold tracking-tight text-foreground">{card.value}</p>
+                <p className="text-4xl font-semibold tracking-tight text-foreground">
+                  {card.value}
+                </p>
               </CardContent>
             </Card>
-          </a>
+          </Link>
         ))}
       </div>
 
@@ -147,7 +149,10 @@ function AdminDashboard() {
               ))}
               {ultimasNotificaciones.length === 0 && (
                 <TableRow>
-                  <TableCell colSpan={3} className="py-10 text-center text-sm text-muted-foreground">
+                  <TableCell
+                    colSpan={3}
+                    className="py-10 text-center text-sm text-muted-foreground"
+                  >
                     No hay notificaciones todavía.
                   </TableCell>
                 </TableRow>
@@ -167,7 +172,10 @@ function SolicitanteDashboard({ nombre }: { nombre: string }) {
     .slice(0, 8);
 
   return (
-    <AppShell title={`Hola, ${nombre.split(" ")[0]}`} subtitle="Gestiona tus solicitudes de material">
+    <AppShell
+      title={`Hola, ${nombre.split(" ")[0]}`}
+      subtitle="Gestiona tus solicitudes de material"
+    >
       <div className="grid gap-4 sm:grid-cols-2">
         <Link to="/solicitudes/nueva">
           <Card className="h-full border-border/70 shadow-sm transition-all hover:shadow-md hover:border-border/100 cursor-pointer">
@@ -237,12 +245,17 @@ function SolicitanteDashboard({ nombre }: { nombre: string }) {
                       {r.estado}
                     </span>
                   </TableCell>
-                  <TableCell className="text-right text-sm text-muted-foreground">{r.fecha}</TableCell>
+                  <TableCell className="text-right text-sm text-muted-foreground">
+                    {r.fecha}
+                  </TableCell>
                 </TableRow>
               ))}
               {misSolicitudes.length === 0 && (
                 <TableRow>
-                  <TableCell colSpan={5} className="py-10 text-center text-sm text-muted-foreground">
+                  <TableCell
+                    colSpan={5}
+                    className="py-10 text-center text-sm text-muted-foreground"
+                  >
                     Todavía no has hecho ninguna solicitud.
                   </TableCell>
                 </TableRow>

@@ -24,7 +24,12 @@ import logoWhite from "@/assets/logo_white.png";
 function handleResetDemoData() {
   if (!window.confirm("¿Restablecer todos los datos de la demo a su estado inicial?")) return;
   resetDemoData();
-  window.location.href = "/login";
+  // Navegación absoluta a propósito (no un Link de React Router): queremos
+  // una recarga completa que limpie toda la caché en memoria (TanStack
+  // Query, estado de React...). BASE_URL ya incluye la subruta del
+  // despliegue (p.ej. "/Company-Stock/" en GitHub Pages, "/" en el resto),
+  // así que hay que anteponerla en vez de usar una ruta absoluta a secas.
+  window.location.href = `${import.meta.env.BASE_URL}login`;
 }
 
 const items = [
