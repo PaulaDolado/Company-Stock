@@ -1,9 +1,22 @@
-# Company Stock
+<div align="center">
 
-Dashboard de gestión de stock: usuarios, solicitudes de material, reposición
-interna, proveedores y pedidos.
+# 📦 Company Stock
 
-🔗 **Demo en vivo:** https://pauladolado.github.io/Company-Stock/
+**Dashboard de gestión de stock: usuarios, solicitudes de material, reposición interna, proveedores y pedidos.**
+
+[![Deploy](https://github.com/PaulaDolado/Company-Stock/actions/workflows/deploy.yml/badge.svg)](https://github.com/PaulaDolado/Company-Stock/actions/workflows/deploy.yml)
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-6-646CFF?logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)
+![TanStack Query](https://img.shields.io/badge/TanStack_Query-5-FF4154?logo=reactquery&logoColor=white)
+![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-Radix-000000?logo=shadcnui&logoColor=white)
+
+[**🔗 Demo en vivo**](https://pauladolado.github.io/Company-Stock/)
+
+<img src="public/miniatura.png" alt="Vista previa del Dashboard de Company Stock" width="720" />
+
+</div>
 
 > **Proyecto de portfolio.** Es una adaptación de una aplicación real que
 > desarrollé para gestionar el almacén de una empresa, con el nombre y los
