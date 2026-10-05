@@ -1,6 +1,6 @@
 <div align="center">
 
-# 📦 Company Stock
+# Company Stock
 
 **Dashboard de gestión de stock: usuarios, solicitudes de material, reposición interna, proveedores y pedidos.**
 
